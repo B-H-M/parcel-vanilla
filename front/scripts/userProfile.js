@@ -10,7 +10,7 @@ if (!token){
     window.location.href = "./login.html"
 }
 
-else if (role !== "member"){
+else if (role === "admin"){
   window.location.href = "./adminPage.html"
 }
 else{
@@ -33,13 +33,13 @@ fetch(`https://parcel-sender-app-backend.herokuapp.com/api/v1/users/${userId}/pa
 })
     .then(res => res.json())
     .then(data => {
-        const ordersTable = document.querySelector(".parcelDetails"); 
-        if(!data.length) {
-            const showTable = document.querySelector('.table');
-            showTable.style.color = 'red';
-            showTable.innerHTML = "You do not have any parcel Delivery order yet";
+      if(!data.length) {
+          const showTable = document.querySelector('.table');
+          showTable.style.color = 'red';
+          showTable.innerHTML = "You do not have any parcel Delivery order yet";
 
-        } else {
+      } else {
+        const ordersTable = document.querySelector(".parcelDetails"); 
             data.sort((a, b) => a.id - b.id);
             renderTableData(data, ordersTable);
 
@@ -61,7 +61,8 @@ fetch(`https://parcel-sender-app-backend.herokuapp.com/api/v1/users/${userId}/pa
     });
 
 
-    const renderTableData = (data, ordersTable) => {
+    
+    const renderTableData = (data, ordersTable) => {      
         data.forEach(parcel => {
             let parcelRow = document.createElement("tr");
             parcelRow.innerHTML = `<th scope="row" class="no-display">${parcel.id}</th>
@@ -76,8 +77,9 @@ fetch(`https://parcel-sender-app-backend.herokuapp.com/api/v1/users/${userId}/pa
                                         
                                 `;
             ordersTable.append(parcelRow);
-        });        
         
+        });        
+       
       };
          
 //handling logout
