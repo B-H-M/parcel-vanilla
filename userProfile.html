@@ -1,0 +1,176 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>user Profile</title>
+    <link rel="stylesheet" type="text/css" href="./front/styles/userProfile.css">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+      crossorigin="anonymous"
+    />
+    <script src="https://kit.fontawesome.com/ecf7cb3da8.js" crossorigin="anonymous"></script>
+
+</head>
+<body class="show">
+
+    <header>
+      <div class="headerSection">
+        <a href="index.html" class="logo"><img src="./front/images/sendITLogo.png"/></a>
+        <nav class="headerNav">
+          <a class="burger-nav"></a>
+          <ul>
+              <li><a id="nameBar"></a></li>
+              <li><a href="./userProfile.html">Dashboard</a></li>
+              <li><button id="logout">Logout</button></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <section class="banner">
+        <div id="dashboard">
+            <span>
+                <a href="./createOrder.html" id="orderLink">Create Order</a>
+            </span>
+            <!-- <nav class="sideNav">
+                <ul>
+                    <li>Number of Orders: <span id="ordersLength">0</span></li>
+                    <li>Orders in transit: <span id="transit">0</span></li>
+                    <li>Delivered: <span id="delivered">0</span></li>
+                    <li>Cancelled Orders: <span id="cancelled">0</span></li>
+                </ul>
+            </nav> -->
+            <div id="d">
+            <table class="table table-striped" id="bannerNav">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Number of Orders </th>
+                        <th>Orders in Transit</th>
+                        <th>Delivered</th>
+                        <th>Cancelled Orders</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span style="color: red" id="ordersLength">0</span></td>
+                        <td><span style="color: red" id="transit">0</span></td>
+                        <td><span style="color: red" id="delivered">0</span></td>
+                        <td><span style="color: red" id="cancelled">0</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-striped">
+                <thead class="thead-dark profile">
+                    <tr>
+                      <th scope="col" class="no-display"> ID</th>
+                      <th scope="col"> Pickup Location</th>
+                      <th scope="col">Destination</th>
+                      <th scope="col">Recipient Name</th>
+                      <th scope="col">Recipient Phone Number</th>
+                      <th scope="col">Description</th>
+                      <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody class="parcelDetails">
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </section>
+
+     <!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+  </button> -->
+  
+  <!-- Modal -->
+  <!-- Modal For Edit Destination -->
+  <div class="modal fade" id="editDestinationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edit Destination</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form class="form-group" method="PATCH" id="edit-form" autocomplete="off">
+                <input type="number" id="parcelId" class="field form-control" autofocus placeholder="Parcel Id"/></br>
+                <input type="text" id="destination" class="field form-control" placeholder="New Destination" /></br>
+                <button type="submit" class="btn btn-primary mr-5">Change Destination</button>
+                <button type="button" class="btn btn-danger ml-5" data-dismiss="modal">Close</button>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+    <!-- Modal For Cancel Order -->
+    <!-- <div class="modal fade" id="cancelOrderModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Cancel Parcel Order</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <form class="form-group" method="PATCH" id="cancel-form" autocomplete="off">
+                    <input type="number" id="parcelId" class="field form-control" autofocus placeholder="Parcel Id"/></br>
+                    <button type="submit" class="btn btn-primary mr-5">Cancel Order</button>
+                    <button type="button" class="btn btn-danger ml-5" data-dismiss="modal">Close</button>
+                </form>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+
+    <footer>
+      <div class="footerSection">
+          <ul>
+              <li>
+                  <h2>About us</h2>
+                  <p>SendIT is a parcel/courier service that delivers orders perfectly with utmost speed</p>
+              </li>
+
+              <li>
+                  <h2>Office Address</h2>
+                  <p>Shop K-E1064, Tejuosho Ultramodern Market, Yaba, Lagos</p>
+              </li>
+
+              <li>
+                  <h2>Working Hours</h2>            
+                  <p>Weekdays: 8am - 6pm</p>                    
+                  <p>Weekends: 10am - 4pm</p>
+              </li>
+
+              <li>
+                  <h2>MORE INFO</h2>
+                  <p><a href= "index.html">Careers</a></p>
+                  <p><a href= "index.html">Help Center</a></p>
+                  <p><a href= "index.html">Terms & Conditions</a></p>
+                  <p><a href= "index.html">Privacy Policy</a></p>
+              </li>
+          </ul>        
+      </div>
+      <div class="copyrights">
+          <img src="front/images/footerlogo.png" /> Copyright &copy; 2019. All right reserved!
+      </div>
+  </footer>
+</body>
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script src="./front/scripts/userProfile.js"></script>
+    <script src="./front/scripts/editDestination.js"></script>
+    <script src="./front/scripts/cancelOrder.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Admin Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" type="text/css" href="./front/styles/adminPage.css" />
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+    
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css"
+     integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
+      crossorigin="anonymous" /> -->
+
+    <script src="https://kit.fontawesome.com/ecf7cb3da8.js" crossorigin="anonymous"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+      crossorigin="anonymous"
+    />
+  </head>
+  
+</head>
+
+<body class="show">
+ 
+  <header>
+    <nav class="nav-link">
+      <div class="wrapper">
+        <a href="index.html"> <img src="./front/images/sendITLogo.png"  class="hamburger-nav"></a>
+      </div>
+      
+      <div class="wrapper2">
+        <ul class="first-ul">
+          <a href="#"><img class="logo" src="./front/images/sendITLogo.png" alt="logo" /></a>
+          <li><a href="#" id="nameBar"></a></li>
+          <li><a href="adminPage.html">All-orders</a></li>
+          <li><a href="login.html" id="logout">Logout</a></li>            
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+
+  <section>
+
+    <div class="orders">
+      <div class="search text-center">
+        <input type="search" name="search" id="search" data-table="orders-table" placeholder="Search...">
+
+        <select type="search" class="select-table-filter" data-table="order-table">
+          <option value="Parcel Status">Parcel Status</option>  
+          <option value="in transit">In-Transit</option>  
+          <option value="Delivered">Delivered</option>
+          <option value="Cancelled">Cancelled</option>    
+        </select>
+      </div>
+    
+        <div id="dashboard"> </div>
+        
+        <div class="flex">
+        <table class="table table-striped" style="width: 70%;">
+          <thead class="thead">
+            <tr>
+              <th scope="col" class="no-display">ID</th>
+              <th scope="col">Pickup Location</th>
+              <th scope="col">Destination</th>
+              <th scope="col">Recipient Name</th>
+              <th scope="col">Recipient Phone Number</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody class="parcelDetails">
+          </tbody>
+        </table>
+      </div>
+      <div>
+      <h4  id="error-msg" style="color: red; margin-left: 30%; ;"></h4>
+    </div>
+
+    <div id="dassh"> </div>   
+  </section>
+
+<!-- MODAL -->
+  <!-- Modal for Changing status -->
+  <div class="modal fade" id="changeStatusModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Change Status</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form class="form-group" method="PATCH" id="status-form" autocomplete="off">
+                <input type="number" id="parcelId" class="field form-control" autofocus placeholder="Parcel Id"/></br>
+                <!-- <input type="text" id="status" class="field form-control" placeholder="New Status" /></br> -->
+                <select id="status" class="field form-control">
+                  <option value="in transit">In-Transit</option>  
+                  <option value="Delivered">Delivered</option>
+                  <option value="Cancelled">Cancelled</option>     
+                </select></br></br></br></br>
+                <button type="submit" class="btn btn-primary mr-5">Change Status</button>
+                <button type="button" class="btn btn-danger ml-5" data-dismiss="modal">Close</button>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal For Change Location -->
+  <div class="modal fade" id="changeLocationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Change Location</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form class="form-group" method="PATCH" id="location-form" autocomplete="off">
+                <input type="number" id="parcelsId" class="field form-control" autofocus placeholder="Parcel Id"/></br>
+                <input type="text" id="presentLocation" class="field form-control" placeholder="New Location" /></br>
+                <button type="submit" class="btn btn-primary mr-5">New Location</button>
+                <button type="button" class="btn btn-danger ml-5" data-dismiss="modal">Close</button>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <footer>
+    <div class="footerSection">
+        <ul>
+            <li>
+                <h2>About us</h2>
+                <p>SendIT is a parcel/courier service that delivers orders perfectly with utmost speed</p>
+            </li>
+
+            <li>
+                <h2>Office Address</h2>
+                <p>Shop K-E1064, Tejuosho Ultramodern Market, Yaba, Lagos</p>
+            </li>
+
+            <li>
+                <h2>Working Hours</h2>            
+                <p>Weekdays: 8am - 6pm</p>                    
+                <p>Weekends: 10am - 4pm</p>
+            </li>
+
+            <li>
+                <h2>MORE INFO</h2>
+                <p><a href= "index.html">Careers</a></p>
+                <p><a href= "index.html">Help Center</a></p>
+                <p><a href= "index.html">Terms & Conditions</a></p>
+                <p><a href= "index.html">Privacy Policy</a></p>
+            </li>
+        </ul>        
+    </div>
+    <div class="copyrights">
+        <img src="front/images/footerlogo.png" /> Copyright &copy; 2019. All right reserved!
+    </div>
+</footer>
+
+<script src="//code.jquery.com/jquery.min.js"></script>
+<script src="./front/scripts/adminPage.js"></script>
+<script src="./front/scripts/changeStatus.js"></script>
+<script src="./front/scripts/changeLocation.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" 
+integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script>
+  function initAutocomplete() {
+    const input = document.getElementById('presentLocation');
+    const autocomplete = new google.maps.places.Autocomplete(input);
+  }
+</script>
+<script type="text/javascript" 
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsCpECdOd6XCeKdReJj7YPQrfYVwzeKSI&libraries=places&callback=initAutocomplete"></script>
+
+</body>
+</html>

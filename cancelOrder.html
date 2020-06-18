@@ -1,0 +1,70 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cancel Order</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="./front/styles/cancelOrder.css">
+</head>
+<body>
+
+  <!-- Please Note that this page have been replaced by Modal -->
+    <header>
+    <div class="headerSection">
+      <a href="index.html" class="logo"><img src="./front/images/sendITLogo.png" /></a>
+      <nav class="headerNav">
+          <a class="burger-nav"></a>
+        <ul>
+          <li><a href="./userProfile.html">Dashboard</a></li>
+          <li><a id="nameBar"></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="form-section">
+    <div>
+      <form method="PATCH" id="edit-form" autocomplete="off">
+        <h2>Cancel Parcel Order</h2>
+        <h3>Parcel ID:</h3>
+        <input type="number" id="parcelId" class="field" autofocus/><br>
+        <input type="submit" value="Cancel" class="destinationButton" />
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footerSection">
+      <ul>
+        <li>
+          <h2>About us</h2>
+          <p> SendIT is a parcel/courier service that delivers orders perfectly with utmost speed</p>
+        </li>
+        <li>
+          <h2>Office Address</h2>
+          <p>No 11, Araba street, Ilupeju estate, Lagos State Nigeria</p>
+        </li>
+        <li>
+          <h2>Working Hours</h2>
+          <p>Weekdays: 8am - 6pm</p>
+          <p>Weekends: 10am - 4pm</p>
+        </li>
+        <li>
+          <h2>MORE INFO</h2>
+          <p><a href="index.html">Careers</a></p>
+          <p><a href="index.html">Help Center</a></p>
+          <p><a href="index.html">Terms&Conditions</a></p>
+          <p><a href="index.html">Privacy Policy</a></p>
+        </li>
+      </ul>
+    </div>
+    <div class="copyrights">
+      <img src="front/images/footerlogo.png" />Copyright &copy; 2019. All rights reserved!
+    </div>
+  </footer>
+    
+</body>
+  <script src="//code.jquery.com/jquery.min.js"></script>
+  <script src="./front/scripts/cancelOrder.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+</html>
