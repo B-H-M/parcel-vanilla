@@ -34,7 +34,7 @@ fetch(`https://parcel-sender-app-backend.herokuapp.com/api/v1/users/${userId}/pa
     .then(res => res.json())
     .then(data => {
       if(!data.length) {
-          const showTable = document.querySelector('.table');
+          const showTable = document.querySelector('.displayTable');
           showTable.style.color = 'red';
           showTable.innerHTML = "You do not have any parcel Delivery order yet";
 

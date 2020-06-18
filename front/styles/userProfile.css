@@ -13,6 +13,10 @@ body {
   display: none;
 }
 
+.displayTable{
+  align-items: center;
+}
+
 li {
   list-style: none;
 }
@@ -126,10 +130,6 @@ header {
   display: none;
 }
 
-/* .fa {
-  color: red;
-  display: flex;
-} */
 
 .banner h1 {
   color: red;
@@ -141,7 +141,9 @@ header {
   width: 100%;
   background-color: lightgray;
   padding: 5px;
-  margin-right: 20px;
+  margin-left: 10%;
+  margin-top: 110px;
+  margin-bottom: 80px;
 }
 
 .banner nav li {
@@ -159,24 +161,22 @@ header {
   box-shadow: inset -5px -5px 5px #888;
 } */
 
-/* .profile {
+.profile {
   padding: 4% 0 12% 0;
-  width: 50%;
   margin: 0 auto;
-  margin-left: 50px;
-} */
+}
 
-/* .table{
+#theTable{
   font-size: 18px;
   color: rgb(54, 54, 54);
-  width: 50%;
+  width: 70%;
   padding: 10px 0;
-  font-weight: 600;
-} */
-#d{
+  margin-left: 15%;
+}
+/* #dish{
   display: flex;
   margin-top: 80px;
-}
+} */
 
 .destinationh2 {
   margin: 20px 0;
