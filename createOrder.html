@@ -84,4 +84,17 @@
   <script src="//code.jquery.com/jquery.min.js"></script>
   <script src="./front/scripts/createOrder.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+  <script>
+    //Place Autocomplete Address Form 
+    function initAutocomplete() {
+      const pickup = document.getElementById('pickup');
+      const destination = document.getElementById('destination');
+
+      const autocompletePickup = new google.maps.places.Autocomplete(pickup);
+      const autocompleteDestination = new google.maps.places.Autocomplete(destination);
+
+    }
+  </script>
+  <script type="text/javascript" 
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsCpECdOd6XCeKdReJj7YPQrfYVwzeKSI&libraries=places&callback=initAutocomplete"></script>
 </html>
